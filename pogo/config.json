@@ -1,0 +1,21 @@
+{
+  "username": "",
+  "password": "",
+  "auth": "google",
+  "starting_location": "",
+  "pause": 0.5,
+  "logs": "./logs/",
+  "priviledged_items": [
+    "ITEM_LUCKY_EGG",
+    "ITEM_INCENSE_ORDINARY",
+    "ITEM_SPECIAL_CAMERA",
+    "ITEM_INCUBATOR_BASIC",
+    "ITEM_INCUBATOR_BASIC_UNLIMITED",
+    "ITEM_TROY_DISK"
+  ],
+  "semi_priviledged_items": {
+    "ITEM_ULTRA_BALL": 30,
+    "ITEM_HYPER_POTION": 30,
+    "ITEM_MAX_REVIVE": 10
+  }
+}
