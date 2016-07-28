@@ -360,9 +360,6 @@ if __name__ != '__main__':
     )
     '''
     poko_session = PokeAuthSession(
-        'aznpwnzor',
-        'M3ganfoxroxmysox?',
-        'google'
     )
 
     # Authenticate with a given location

@@ -1,4 +1,5 @@
 config_personal.json
+config_miller_wench.json
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

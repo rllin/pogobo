@@ -439,7 +439,7 @@ class PogoSession(object):
     # These act as more logical functions.
     # Might be better to break out seperately
     # Walk over to position in meters
-    def walk_to(self, olatitude, olongitude, epsilon=10, step=7.5):
+    def walk_to(self, olatitude, olongitude, epsilon=10, step=7.5, pause=0.5, step_lambda=None, step_lambda_kwargs={}, step_call=1):
         if step >= epsilon:
             raise Exception("Walk may never converge")
 
@@ -456,7 +456,10 @@ class PogoSession(object):
         divisions = closest / step
         dLat = (latitude - olatitude) / divisions
         dLon = (longitude - olongitude) / divisions
+        count = 0
         while dist > epsilon:
+            if count % step_call == 0 and step_lambda:
+                step_lambda(**step_lambda_kwargs)
             #logging.info("%f m -> %f m away", closest - dist, closest)
             latitude -= dLat
             longitude -= dLon
@@ -464,13 +467,14 @@ class PogoSession(object):
                 latitude,
                 longitude
             )
-            time.sleep(1)
+            time.sleep(pause)
             dist = Location.getDistance(
                 latitude,
                 longitude,
                 olatitude,
                 olongitude
             )
+            count += 1
 
     # Wrap both for ease
     # TODO: Should probably check for success
